@@ -1,0 +1,4 @@
+(require "hello-world")
+(require 'hello-world)
+(clojure.test/run-tests 'hello-world)
+exit
