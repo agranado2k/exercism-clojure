@@ -20,3 +20,10 @@ result)
 (let [words ["test" "teste"]
 result {}]
 words)
+(re-seq #"\w+" "teste outra palavra")
+(re-seq #"\w+" "teste outra palavra 1 3")
+(re-seq #"\d+" "teste outra palavra 1 3")
+(re-seq #"\w+" "teste outra palavra 1 3")
+(re-seq #"\w+|\d+" "teste outra palavra 1 3")
+(re-seq #"\w+" "teste outra palavra 1 3")
+(re-seq #"\w+|\d+" "teste outra palavra 1 3")

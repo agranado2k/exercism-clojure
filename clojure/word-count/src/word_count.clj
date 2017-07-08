@@ -4,16 +4,12 @@
 
 (defn recreate-r
   [r w]
-  (if (nil? (r w))
-    (assoc r w 1)
-    (assoc r w (inc (r w)))
-  ))
+  (assoc r w (inc (or (get r w) 0)))
+)
 
 (defn word-count
   [phrase]
-   (let [words (string/split
-                (string/lower-case
-                   (string/replace phrase #"[^\d\w\s]" "")) #"\s+")
+   (let [words (re-seq #"\w+|\d+" (string/lower-case phrase))
          result {}
          ]
       (loop [w words r result]
