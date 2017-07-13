@@ -32,7 +32,8 @@
   (let [sorted-anagram (s-sort anagram)]
     (filter
       #(and (anagram? sorted-anagram %)
-            (not (= sorted-anagram %))            (not-capital-word? sorted-anagram %))
+            (not-same-word? anagram %)
+            (not-capital-word? anagram %))
       words)
   )
 )
