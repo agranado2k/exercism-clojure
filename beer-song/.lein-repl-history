@@ -1,0 +1,38 @@
+(and nil 0)
+(and 0 nil)
+(and 0 1)
+(or nil 0)
+(or 1 0)
+exit
+(map inc (range 1 3))
+(str (map inc (range 1 3)))
+(str "" (map inc (range 1 3)))
+(map inc (range 1 3))
+(map str (range 1 3))
+(str (map str (range 1 3)))
+(clojure.string/join (map str (range 1 3)))
+exit
+(defn verse [num_verse]
+  (let [bottles num_verse
+        next_bottles (- num_verse 1)]
+    (cond
+      (>= num_verse 3) (str bottles " bottles of beer on the wall, " bottles " bottles of beer.\n"
+           "Take one down and pass it around, " next_bottles " bottles of beer on the wall.\n")
+      (= num_verse 2) (str "2 bottles of beer on the wall, 2 bottles of beer.\n"
+           "Take one down and pass it around, 1 bottle of beer on the wall.\n")
+      (= num_verse 1) (str "1 bottle of beer on the wall, 1 bottle of beer.\n"
+           "Take it down and pass it around, no more bottles of beer on the wall.\n")
+      (= num_verse 0) (str "No more bottles of beer on the wall, no more bottles of beer.\n"
+           "Go to the store and buy some more, 99 bottles of beer on the wall.\n")
+    )
+  )
+)
+verse 8
+(verse 8)
+(map verse (range 8 6)
+)
+(map verse (range 8 6))
+(map verse (range 6 8))
+(map verse (reverse (range 6 8)))
+(map verse (reverse (range 6 9)))
+(clojure.string/join (map verse (reverse (range 6 9))))
